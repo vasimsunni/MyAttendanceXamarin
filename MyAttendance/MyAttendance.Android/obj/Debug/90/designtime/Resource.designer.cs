@@ -8286,7 +8286,7 @@ namespace MyAttendance.Droid
 			public const int backgroung = 2131165270;
 			
 			// aapt resource value: 0x7F070057
-			public const int checkin_removebg_preview = 2131165271;
+			public const int checkin = 2131165271;
 			
 			// aapt resource value: 0x7F070058
 			public const int design_bottom_navigation_item_background = 2131165272;

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Vasim\\Stuff\\MyAttendance\\MyAttendance.Android\\MyAttendance.Android.csproj": {}
+    "D:\\Vasim\\Stuff\\MyAttendanceXamarin\\MyAttendance\\MyAttendance.Android\\MyAttendance.Android.csproj": {}
   },
   "projects": {
-    "D:\\Vasim\\Stuff\\MyAttendance\\MyAttendance.Android\\MyAttendance.Android.csproj": {
+    "D:\\Vasim\\Stuff\\MyAttendanceXamarin\\MyAttendance\\MyAttendance.Android\\MyAttendance.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Vasim\\Stuff\\MyAttendance\\MyAttendance.Android\\MyAttendance.Android.csproj",
+        "projectUniqueName": "D:\\Vasim\\Stuff\\MyAttendanceXamarin\\MyAttendance\\MyAttendance.Android\\MyAttendance.Android.csproj",
         "projectName": "MyAttendance.Android",
-        "projectPath": "D:\\Vasim\\Stuff\\MyAttendance\\MyAttendance.Android\\MyAttendance.Android.csproj",
+        "projectPath": "D:\\Vasim\\Stuff\\MyAttendanceXamarin\\MyAttendance\\MyAttendance.Android\\MyAttendance.Android.csproj",
         "packagesPath": "C:\\Users\\Vasim Sunni\\.nuget\\packages\\",
-        "outputPath": "D:\\Vasim\\Stuff\\MyAttendance\\MyAttendance.Android\\obj\\",
+        "outputPath": "D:\\Vasim\\Stuff\\MyAttendanceXamarin\\MyAttendance\\MyAttendance.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -32,8 +32,8 @@
         "frameworks": {
           "monoandroid90": {
             "projectReferences": {
-              "D:\\Vasim\\Stuff\\MyAttendance\\MyAttendance\\MyAttendance.csproj": {
-                "projectPath": "D:\\Vasim\\Stuff\\MyAttendance\\MyAttendance\\MyAttendance.csproj"
+              "D:\\Vasim\\Stuff\\MyAttendanceXamarin\\MyAttendance\\MyAttendance\\MyAttendance.csproj": {
+                "projectPath": "D:\\Vasim\\Stuff\\MyAttendanceXamarin\\MyAttendance\\MyAttendance\\MyAttendance.csproj"
               }
             }
           }
@@ -54,14 +54,14 @@
         }
       }
     },
-    "D:\\Vasim\\Stuff\\MyAttendance\\MyAttendance\\MyAttendance.csproj": {
+    "D:\\Vasim\\Stuff\\MyAttendanceXamarin\\MyAttendance\\MyAttendance\\MyAttendance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Vasim\\Stuff\\MyAttendance\\MyAttendance\\MyAttendance.csproj",
+        "projectUniqueName": "D:\\Vasim\\Stuff\\MyAttendanceXamarin\\MyAttendance\\MyAttendance\\MyAttendance.csproj",
         "projectName": "MyAttendance",
-        "projectPath": "D:\\Vasim\\Stuff\\MyAttendance\\MyAttendance\\MyAttendance.csproj",
+        "projectPath": "D:\\Vasim\\Stuff\\MyAttendanceXamarin\\MyAttendance\\MyAttendance\\MyAttendance.csproj",
         "packagesPath": "C:\\Users\\Vasim Sunni\\.nuget\\packages\\",
-        "outputPath": "D:\\Vasim\\Stuff\\MyAttendance\\MyAttendance\\obj\\",
+        "outputPath": "D:\\Vasim\\Stuff\\MyAttendanceXamarin\\MyAttendance\\MyAttendance\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -93,6 +93,10 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "FirebaseDatabase.net": {
+              "target": "Package",
+              "version": "[4.0.4, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",

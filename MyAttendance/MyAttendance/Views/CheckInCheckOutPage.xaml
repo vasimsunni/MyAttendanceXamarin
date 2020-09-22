@@ -6,35 +6,44 @@
              Title="{Binding Title}">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2" />
+            <RowDefinition Height="150" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
         </Grid.RowDefinitions>
-        <!--<StackLayout BackgroundColor="#FA4747" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
-                    <Label x:Name="Title" Text="CheckIn - CheckOut" TextColor="#FFF" FontSize="Caption"/>
-                </ContentView>
-            </StackLayout>
-        </StackLayout>-->
-        <ScrollView Grid.Row="1">
-            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                <Label Text="Start developing now" FontSize="Title"/>
-                <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="0,0,0,0"/>
-                <Label FontSize="16" Padding="0,24,0,0">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <FormattedString.Spans>
-                                <Span Text="Learn more at "/>
-                                <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                            </FormattedString.Spans>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Button Margin="0,10,0,0" Text="Learn more"
-                        BackgroundColor="#FA4747"
-                        TextColor="White" />
-            </StackLayout>
-        </ScrollView>
+
+
+        <StackLayout Grid.Row="0" BackgroundColor="#FFF" VerticalOptions="Fill" HorizontalOptions="Fill" Orientation="Vertical" Padding="10" >
+            <Label x:Name="CurrenctCheckInTime" Text="Current CheckIn" FontSize="Title"  IsVisible="{Binding hasCurrentCheckIn}" />
+
+            <ContentView x:Name="ElapsedTimeView" Padding="5">
+                <Label x:Name="lblElapsedTime" Text="00:00" FontSize="Header" HorizontalOptions="Center" TextColor="#FA4747" Margin="10,0,10,0"></Label>
+            </ContentView>
+        </StackLayout>
+
+        <StackLayout Grid.Row="1" BackgroundColor="#FFF" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" Orientation="Vertical" Padding="10" >
+           
+            <ScrollView>
+
+                <StackLayout BackgroundColor="#FFF" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" Orientation="Vertical" Padding="10" >
+
+                    <ContentView x:Name="TodayCheckedInView" Padding="0" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand"  IsVisible="true">
+                        <Grid x:Name="grdTodayCheckIn">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions></Grid.RowDefinitions>
+                        </Grid>
+                    </ContentView>
+                </StackLayout>
+
+            </ScrollView>
+        </StackLayout>
+        <StackLayout Grid.Row="2" Orientation="Horizontal" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center" >
+            <Button x:Name="btnCheckOut" Margin="0,10,0,0" Text="Check Out" BackgroundColor="#FA4747" TextColor="White" Clicked="btnCheckOut_Clicked" IsVisible="True"/>
+            <Button x:Name="btnCheckIn" Margin="0,10,0,0" Text="Check In" BackgroundColor="#FA4747" TextColor="White" Clicked="btnCheckIn_Clicked" IsVisible="True"/>
+        </StackLayout>
     </Grid>
 
 </ContentPage>

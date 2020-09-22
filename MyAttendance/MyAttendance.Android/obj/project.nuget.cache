@@ -1,9 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "/YEvXnnjwbWVC+o2f81JajeZchGcoBLcbTVh7TtTXd7QMy/B3YKqGpQ+2Fb1B9QJiZtPA3aZKSGEsKOP6CiinA==",
+  "dgSpecHash": "GqnhSrEPC7u0B4zYjYzhoCFqu/a40Tb8hTLmjB3i5J2lSbAUHiKKDOX4QkZGDEs3bMW99poCXKUya0lJre/yEA==",
   "success": true,
-  "projectFilePath": "D:\\Vasim\\Stuff\\MyAttendance\\MyAttendance.Android\\MyAttendance.Android.csproj",
+  "projectFilePath": "D:\\Vasim\\Stuff\\MyAttendanceXamarin\\MyAttendance\\MyAttendance.Android\\MyAttendance.Android.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Vasim Sunni\\.nuget\\packages\\firebasedatabase.net\\4.0.4\\firebasedatabase.net.4.0.4.nupkg.sha512",
+    "C:\\Users\\Vasim Sunni\\.nuget\\packages\\litedb\\4.1.4\\litedb.4.1.4.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\Vasim Sunni\\.nuget\\packages\\system.reactive\\4.0.0\\system.reactive.4.0.0.nupkg.sha512",
+    "C:\\Users\\Vasim Sunni\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
+    "C:\\Users\\Vasim Sunni\\.nuget\\packages\\system.reflection.typeextensions\\4.3.0\\system.reflection.typeextensions.4.3.0.nupkg.sha512",
+    "C:\\Users\\Vasim Sunni\\.nuget\\packages\\system.runtime.interopservices.windowsruntime\\4.3.0\\system.runtime.interopservices.windowsruntime.4.3.0.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.arch.core.common\\1.1.1.3\\xamarin.android.arch.core.common.1.1.1.3.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.arch.core.runtime\\1.1.1.3\\xamarin.android.arch.core.runtime.1.1.1.3.nupkg.sha512",
     "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.android.arch.lifecycle.common\\1.1.1.3\\xamarin.android.arch.lifecycle.common.1.1.1.3.nupkg.sha512",

@@ -4,46 +4,67 @@
              x:Class="MyAttendance.Views.CheckInCheckOutPage"
              xmlns:vm="clr-namespace:MyAttendance.ViewModels"
              Title="{Binding Title}">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="150" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="100" />
-        </Grid.RowDefinitions>
+    <AbsoluteLayout>
+        <StackLayout
+        x:Name="mainLayout"
+        AbsoluteLayout.LayoutBounds="0,0,1,1"
+                 AbsoluteLayout.LayoutFlags="All" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="100" />
+                </Grid.RowDefinitions>
 
 
-        <StackLayout Grid.Row="0" BackgroundColor="#FFF" VerticalOptions="Fill" HorizontalOptions="Fill" Orientation="Vertical" Padding="10" >
-            <Label x:Name="CurrenctCheckInTime" Text="Current CheckIn" FontSize="Title"  IsVisible="{Binding hasCurrentCheckIn}" />
+                <StackLayout Grid.Row="0" BackgroundColor="#FFF" VerticalOptions="Fill" HorizontalOptions="Fill" Orientation="Vertical" Padding="10" >
+                    <Label x:Name="CurrenctCheckInTime" Text="No Checked In yet" FontSize="Title"  IsVisible="{Binding hasCurrentCheckIn}" />
 
-            <ContentView x:Name="ElapsedTimeView" Padding="5">
-                <Label x:Name="lblElapsedTime" Text="00:00" FontSize="Header" HorizontalOptions="Center" TextColor="#FA4747" Margin="10,0,10,0"></Label>
-            </ContentView>
-        </StackLayout>
-
-        <StackLayout Grid.Row="1" BackgroundColor="#FFF" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" Orientation="Vertical" Padding="10" >
-           
-            <ScrollView>
-
-                <StackLayout BackgroundColor="#FFF" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" Orientation="Vertical" Padding="10" >
-
-                    <ContentView x:Name="TodayCheckedInView" Padding="0" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand"  IsVisible="true">
-                        <Grid x:Name="grdTodayCheckIn">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions></Grid.RowDefinitions>
-                        </Grid>
+                    <ContentView x:Name="ElapsedTimeView" Padding="5">
+                        <Label x:Name="lblElapsedTime" Text="00:00" FontSize="Header" HorizontalOptions="Center" TextColor="#FA4747" Margin="10,0,10,0"></Label>
                     </ContentView>
                 </StackLayout>
 
-            </ScrollView>
-        </StackLayout>
-        <StackLayout Grid.Row="2" Orientation="Horizontal" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center" >
-            <Button x:Name="btnCheckOut" Margin="0,10,0,0" Text="Check Out" BackgroundColor="#FA4747" TextColor="White" Clicked="btnCheckOut_Clicked" IsVisible="True"/>
-            <Button x:Name="btnCheckIn" Margin="0,10,0,0" Text="Check In" BackgroundColor="#FA4747" TextColor="White" Clicked="btnCheckIn_Clicked" IsVisible="True"/>
-        </StackLayout>
-    </Grid>
+                <StackLayout Grid.Row="1" BackgroundColor="#FFF" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" Orientation="Vertical" Padding="10" >
 
+                    <ScrollView>
+
+                        <StackLayout BackgroundColor="#FFF" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" Orientation="Vertical" Padding="10" >
+
+                            <ContentView x:Name="TodayCheckedInView" Padding="0" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand"  IsVisible="true">
+                                <Grid x:Name="grdTodayCheckIn">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions></Grid.RowDefinitions>
+                                </Grid>
+                            </ContentView>
+                        </StackLayout>
+
+                    </ScrollView>
+                </StackLayout>
+                <StackLayout Grid.Row="2" Orientation="Horizontal" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center" >
+                    <Button x:Name="btnCheckOut" Margin="0,10,0,0" Text="Check Out" BackgroundColor="#FA4747" TextColor="White" Clicked="btnCheckOut_Clicked" IsVisible="False"/>
+                    <Button x:Name="btnCheckIn" Margin="0,10,0,0" Text="Check In" BackgroundColor="#FA4747" TextColor="White" Clicked="btnCheckIn_Clicked" IsVisible="False"/>
+                </StackLayout>
+
+
+            </Grid>
+
+        </StackLayout>
+        <StackLayout x:Name="aiLayout"
+        IsVisible="False"
+        AbsoluteLayout.LayoutBounds="0,0,1,1"
+        AbsoluteLayout.LayoutFlags="All"
+        BackgroundColor="White" Opacity="0.8">
+            <ActivityIndicator x:Name="actLoader" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Color="#FA4747" IsRunning="False" IsVisible="False"/>
+        </StackLayout>
+
+        
+        
+    </AbsoluteLayout>
+
+    
 </ContentPage>

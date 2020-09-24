@@ -35,3 +35,22 @@ D:\Vasim\Stuff\MyAttendanceXamarin\MyAttendance\MyAttendance\obj\Debug\netstanda
 D:\Vasim\Stuff\MyAttendanceXamarin\MyAttendance\MyAttendance\obj\Debug\netstandard2.0\MyAttendance.pdb
 D:\Vasim\Stuff\MyAttendanceXamarin\MyAttendance\MyAttendance\obj\Debug\netstandard2.0\MyAttendance.csproj.CoreCompileInputs.cache
 D:\Vasim\Stuff\MyAttendanceXamarin\MyAttendance\MyAttendance\obj\Debug\netstandard2.0\XamlC.stamp
+D:\Work\My Attendance\MyAttendanceXamarin\MyAttendance\MyAttendance\bin\Debug\netstandard2.0\MyAttendance.deps.json
+D:\Work\My Attendance\MyAttendanceXamarin\MyAttendance\MyAttendance\bin\Debug\netstandard2.0\MyAttendance.dll
+D:\Work\My Attendance\MyAttendanceXamarin\MyAttendance\MyAttendance\bin\Debug\netstandard2.0\ref\MyAttendance.dll
+D:\Work\My Attendance\MyAttendanceXamarin\MyAttendance\MyAttendance\bin\Debug\netstandard2.0\MyAttendance.pdb
+D:\Work\My Attendance\MyAttendanceXamarin\MyAttendance\MyAttendance\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\Work\My Attendance\MyAttendanceXamarin\MyAttendance\MyAttendance\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
+D:\Work\My Attendance\MyAttendanceXamarin\MyAttendance\MyAttendance\obj\Debug\netstandard2.0\Views\CheckInCheckOutPage.xaml.g.cs
+D:\Work\My Attendance\MyAttendanceXamarin\MyAttendance\MyAttendance\obj\Debug\netstandard2.0\Views\ItemDetailPage.xaml.g.cs
+D:\Work\My Attendance\MyAttendanceXamarin\MyAttendance\MyAttendance\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
+D:\Work\My Attendance\MyAttendanceXamarin\MyAttendance\MyAttendance\obj\Debug\netstandard2.0\Views\NewItemPage.xaml.g.cs
+D:\Work\My Attendance\MyAttendanceXamarin\MyAttendance\MyAttendance\obj\Debug\netstandard2.0\Views\ResultPage.xaml.g.cs
+D:\Work\My Attendance\MyAttendanceXamarin\MyAttendance\MyAttendance\obj\Debug\netstandard2.0\MyAttendance.csproj.CoreCompileInputs.cache
+D:\Work\My Attendance\MyAttendanceXamarin\MyAttendance\MyAttendance\obj\Debug\netstandard2.0\MyAttendance.AssemblyInfoInputs.cache
+D:\Work\My Attendance\MyAttendanceXamarin\MyAttendance\MyAttendance\obj\Debug\netstandard2.0\MyAttendance.AssemblyInfo.cs
+D:\Work\My Attendance\MyAttendanceXamarin\MyAttendance\MyAttendance\obj\Debug\netstandard2.0\MyAttendance.dll
+D:\Work\My Attendance\MyAttendanceXamarin\MyAttendance\MyAttendance\obj\Debug\netstandard2.0\ref\MyAttendance.dll
+D:\Work\My Attendance\MyAttendanceXamarin\MyAttendance\MyAttendance\obj\Debug\netstandard2.0\MyAttendance.pdb
+D:\Work\My Attendance\MyAttendanceXamarin\MyAttendance\MyAttendance\obj\Debug\netstandard2.0\XamlC.stamp
+D:\Work\My Attendance\MyAttendanceXamarin\MyAttendance\MyAttendance\obj\Debug\netstandard2.0\MyAttendance.csprojAssemblyReference.cache

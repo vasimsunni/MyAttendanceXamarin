@@ -5,16 +5,18 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MyAttendance.Firebase
 {
     public class FirebaseAttendanceRepository
     {
+        
+
         private readonly string ChildName = "Attendance";
 
         readonly FirebaseClient firebase = new FirebaseClient("https://myattendance-b335d.firebaseio.com/");
+
 
         public async Task<List<AttendanceModel>> GetAllAttendance()
         {
@@ -46,7 +48,9 @@ namespace MyAttendance.Firebase
         }
         public async Task<List<AttendanceModel>> GetAttendance(DateTime date)
         {
-            return (await GetAllAttendance()).Where(x => x.Date.Value.Date == date.Date).OrderBy(x=>x.CheckInTime).ToList();
+
+            firebase.Child(ChildName).Shallow();
+            return (await GetAllAttendance()).Where(x => x.Date.Value.Date == date.Date).OrderBy(x => x.CheckInTime).ToList();
         }
         public async Task UpdateAttendance(AttendanceModel attendance)
         {

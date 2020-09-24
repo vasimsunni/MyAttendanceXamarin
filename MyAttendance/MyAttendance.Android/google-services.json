@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "24091782458",
+    "firebase_url": "https://myattendance-b335d.firebaseio.com",
+    "project_id": "myattendance-b335d",
+    "storage_bucket": "myattendance-b335d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24091782458:android:84c8d81ebbb99158c0b403",
+        "android_client_info": {
+          "package_name": "com.companyname.myattendance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24091782458-3mehii5518mquo6eb3arvd0gsbt3dt8p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzKiugjMnwTRK3l2S9da-Oi2lr34zCj9I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24091782458-3mehii5518mquo6eb3arvd0gsbt3dt8p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

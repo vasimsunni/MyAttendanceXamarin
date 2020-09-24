@@ -1,6 +1,7 @@
 ﻿
 using MyAttendance.Firebase;
 using MyAttendance.Firebase.Models;
+using Plugin.Connectivity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,86 +37,111 @@ namespace MyAttendance.Views
 
         public async void GetTodaysCheckIn()
         {
-            var todaysAttendance = await attendanceRepository.GetAttendance(DateTime.Now.Date);
-
-            if (todaysAttendance.Count() > 0)
+            if (CheckInternet())
             {
-                hasTodaysCheckIn = true;
+                Loader(true);
+                var todaysAttendance = await attendanceRepository.GetAttendance(DateTime.Now.Date);
 
-                CurrenctCheckIn = todaysAttendance.Where(x => x.CheckoutTime == null).LastOrDefault();
+                if (todaysAttendance.Count() > 0)
+                {
+                    hasTodaysCheckIn = true;
 
-                if (CurrenctCheckIn != null) hasCurrentCheckIn = true;
+                    CurrenctCheckIn = todaysAttendance.Where(x => x.CheckoutTime == null).LastOrDefault();
 
-                UpdateDesign();
+                    if (CurrenctCheckIn != null) hasCurrentCheckIn = true;
+
+                    UpdateDesign();
+                }
+
+                UpdateGrid(todaysAttendance);
+
+                Loader(false);
             }
-
-            UpdateGrid(todaysAttendance);
         }
 
         public async void CheckIn()
         {
-            AttendanceModel attendance = new AttendanceModel()
+            if (CheckInternet())
             {
-                Id = Guid.NewGuid(),
-                CheckInTime = DateTime.Now,
-                CheckoutTime = null,
-                Date = DateTime.Now.Date,
-                TotalHours = 0
-            };
+                Loader(true);
 
-            await attendanceRepository.AddAttendance(attendance);
+                AttendanceModel attendance = new AttendanceModel()
+                {
+                    Id = Guid.NewGuid(),
+                    CheckInTime = DateTime.Now,
+                    CheckoutTime = null,
+                    Date = DateTime.Now.Date,
+                    TotalHours = 0
+                };
+
+                await attendanceRepository.AddAttendance(attendance);
 
 
-            CurrenctCheckIn = attendance;
-            hasCurrentCheckIn = true;
+                CurrenctCheckIn = attendance;
+                hasCurrentCheckIn = true;
 
-            StartElapsedTimeUpdate();
-            CurrenctCheckInTime.Text = "Checked In at " + CurrenctCheckIn.CheckInTime.Value.ToString("hh:mm tt");
+                StartElapsedTimeUpdate();
+                CurrenctCheckInTime.Text = "Checked In at " + CurrenctCheckIn.CheckInTime.Value.ToString("hh:mm tt");
 
-            GetTodaysCheckIn();
-            await DisplayAlert("Success", "Checked In successfully.", "OK");
+                GetTodaysCheckIn();
+                Loader(false);
+                await DisplayAlert("Success", "Checked In successfully.", "OK");
+            }
         }
 
         public async void CheckOut()
         {
-            string comment = "";
+            if (CheckInternet())
+            {
+                Loader(true);
+                string comment = "";
 
-            DateTime checkedOutTime = DateTime.Now;
+                DateTime checkedOutTime = DateTime.Now;
 
-            TimeSpan workedHoursTimeSpan = checkedOutTime - CurrenctCheckIn.CheckInTime.Value;
-            int hours = workedHoursTimeSpan.Hours;
-            int minutes = workedHoursTimeSpan.Minutes;
+                TimeSpan workedHoursTimeSpan = checkedOutTime - CurrenctCheckIn.CheckInTime.Value;
+                int hours = workedHoursTimeSpan.Hours;
+                int minutes = workedHoursTimeSpan.Minutes;
 
-            decimal workedHours = Convert.ToDecimal(hours.ToString() + "." + minutes.ToString());
+                decimal workedHours = Convert.ToDecimal(hours.ToString() + "." + minutes.ToString());
 
-            CurrenctCheckIn.CheckoutTime = checkedOutTime;
-            CurrenctCheckIn.TotalHours = workedHours;
-            CurrenctCheckIn.Comment = comment;
+                CurrenctCheckIn.CheckoutTime = checkedOutTime;
+                CurrenctCheckIn.TotalHours = workedHours;
+                CurrenctCheckIn.Comment = comment;
 
-            await attendanceRepository.UpdateAttendance(CurrenctCheckIn);
+                await attendanceRepository.UpdateAttendance(CurrenctCheckIn);
 
-            StopElapsedTimeUpdate();
+                StopElapsedTimeUpdate();
 
-            CurrenctCheckIn = null;
-            hasTodaysCheckIn = true;
-            hasCurrentCheckIn = false;
+                CurrenctCheckIn = null;
+                hasTodaysCheckIn = true;
+                hasCurrentCheckIn = false;
 
-            CurrenctCheckInTime.Text = "Last checked Out at " + checkedOutTime.ToString("hh:mm tt");
-            lblElapsedTime.Text = "00:00";
+                CurrenctCheckInTime.Text = "Last checked Out at " + checkedOutTime.ToString("hh:mm tt");
+                lblElapsedTime.Text = "00:00";
 
-            GetTodaysCheckIn();
-            await DisplayAlert("Success", "Checked Out successfully.", "OK");
+                GetTodaysCheckIn();
+                Loader(false);
+
+                await DisplayAlert("Success", "Checked Out successfully.", "OK");
+            }
         }
 
         public async void Delete()
         {
-            var attendance = (await attendanceRepository.GetAllAttendance()).LastOrDefault();
+            if (CheckInternet())
+            {
+                Loader(true);
+                var attendance = (await attendanceRepository.GetAllAttendance()).LastOrDefault();
 
-            //attendance.Comment = "Checked Out";
+                //attendance.Comment = "Checked Out";
 
-            await attendanceRepository.DeleteAttendance(attendance.Id);
+                await attendanceRepository.DeleteAttendance(attendance.Id);
 
-            await DisplayAlert("Success", "CheckIn details removed successfully.", "OK");
+                GetTodaysCheckIn();
+                Loader(false);
+
+                await DisplayAlert("Success", "CheckIn details removed successfully.", "OK");
+            }
         }
 
         private void btnCheckIn_Clicked(object sender, EventArgs e)
@@ -225,6 +251,13 @@ namespace MyAttendance.Views
                 grdTodayCheckIn.Children.Add(lblHours, 2, i + 1);
             }
 
+            if (todaysAttendance.Count > 0)
+            {
+                var lastCheckedIn = todaysAttendance.LastOrDefault();
+                if(lastCheckedIn.CheckoutTime!=null)
+                CurrenctCheckInTime.Text = "Last checked Out at " + lastCheckedIn.CheckoutTime.Value.ToString("hh:mm tt");
+            }
+
             UpdateDesign();
         }
 
@@ -258,5 +291,36 @@ namespace MyAttendance.Views
                 }
             }
         }
+
+        private void Loader(bool show)
+        {
+            if (show)
+            {  
+                actLoader.IsVisible = true;
+                actLoader.IsRunning = true;
+                actLoader.IsEnabled = true;
+                aiLayout.IsVisible = true;
+            }
+            else
+            {
+                actLoader.IsVisible = false;
+                actLoader.IsRunning = false;
+                actLoader.IsEnabled = false;
+                aiLayout.IsVisible = false;
+            }
+        }
+
+        private bool CheckInternet()
+        {
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+
+                return false;
+            }
+
+            return true;
+        }
+        
     }
 }
